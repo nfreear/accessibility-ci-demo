@@ -1,0 +1,42 @@
+# https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+    # https://github.com/treosh/lighthouse-ci-action
+    - name: Audit URLs using Lighthouse
+      uses: treosh/lighthouse-ci-action@v9
+      with:
+        configPath: './lighthouserc.js'
+        # urls: |
+        #  https://example.com/
+        #  https://example.com/blog
+        # budgetPath: ./budget.json # test performance budgets
+        # uploadArtifacts: true # save results as an action artifacts
+        # temporaryPublicStorage: true # upload lighthouse report to the temporary storage
+
+# End.

@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "accessibility-ci-demo",
+  "scripts": {
+    "start": "npx servor pages",
+    "test:ESM": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "test": "npx jest"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jest-axe": "^7.0.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "servor": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testEnvironmentOptions": {
+      "customExportConditions": [
+        "node",
+        "node-addons"
+      ]
+    },
+    "testPathIgnorePatterns": ["helpers"]
+  }
+}
