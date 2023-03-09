@@ -1,5 +1,7 @@
 
-# Accessibility CI deo #
+# Accessibility CI demo
+
+[![Node.js CI][ci-img]][ci]
 
 This repo demonstrates integrating some automated accessibility testing tools into a continuous integration/deployment (CI/CD) workflow.
 
@@ -26,3 +28,6 @@ npm test
 [survey]: https://webaim.org/projects/screenreadersurvey8/#primary
 [jest-axe]: https://github.com/nickcolley/jest-axe
 [lighthouse-ci-action]: https://github.com/treosh/lighthouse-ci-action
+
+[ci]: https://github.com/nfreear/accessibility-ci-demo/actions/workflows/node.js.yml
+[ci-img]: https://github.com/nfreear/accessibility-ci-demo/actions/workflows/node.js.yml/badge.svg
