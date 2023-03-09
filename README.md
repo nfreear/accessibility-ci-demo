@@ -5,7 +5,7 @@ This repo demonstrates integrating some automated accessibility testing tools in
 
 Specifically, it demonstrates use of two separate tools: [jest-axe][] and @treosh's [lighthouse-ci-action][].
 
-The repo contains example _fails_ and _passes_ [pages][], and corresponding unit tests.
+The repo contains example _fails_ and _passes_ [pages](./pages), and corresponding unit tests.
 
 ## ⚠️✋ This project does not guarantee that what you build is accessible.
 The GDS Accessibility team found that only [~30% of issues are found by automated testing][gds].
