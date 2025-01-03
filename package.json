@@ -7,9 +7,9 @@
     "test": "npx jest"
   },
   "devDependencies": {
-    "jest": "^29.5.0",
-    "jest-axe": "^7.0.0",
-    "jest-environment-jsdom": "^29.5.0",
+    "jest": "^29.7.0",
+    "jest-axe": "^7.0.1",
+    "jest-environment-jsdom": "^29.7.0",
     "servor": "^4.0.2"
   },
   "jest": {
@@ -20,6 +20,8 @@
         "node-addons"
       ]
     },
-    "testPathIgnorePatterns": ["helpers"]
+    "testPathIgnorePatterns": [
+      "helpers"
+    ]
   }
 }
