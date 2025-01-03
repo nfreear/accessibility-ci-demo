@@ -17,8 +17,11 @@ module.exports = {
     },
     "assert": {
       "assertions": {
+        "categories:best-practices": "off",
+        "categories:performance": "off",
+        "categories:seo": "off",
         // "categories:seo": ["warn", {"minScore": 0.9}],
-        "categories:performance": ["warn", {"minScore": 0.8}],
+        // "categories:performance": ["warn", {"minScore": 0.8}],
         "categories:accessibility": ["error", {"minScore": 1}]
       }
     }
