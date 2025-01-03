@@ -1,4 +1,11 @@
 
+/* FAIL: 1.4.3 Contrast (Minimum).
+*/
+.low-contrast {
+  background-color: #eee;
+  color: #bbb;
+}
+
 body {
   font: 1rem sans-serif;
   margin: 0 auto;
