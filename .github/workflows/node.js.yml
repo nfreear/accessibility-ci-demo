@@ -7,27 +7,43 @@ on:
   pull_request:
     branches: [ main ]
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
+# See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+env:
+  NODE_VERSION: 22.x
 
-    strategy:
-      matrix:
-        node-version: [ 22.x ]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+jobs:
+  test_jest:
+    name: Test with jest-axe
+
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
     # Demo - ignore non-zero exit codes for "test".
     - name: Audit URLs using jest-axe
       run: npm test || true
+
+  test_lighthouseci:
+    name: Test with Lighthouse-CI
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
     # https://github.com/treosh/lighthouse-ci-action
     - name: Audit URLs using Lighthouse
       uses: treosh/lighthouse-ci-action@v12
