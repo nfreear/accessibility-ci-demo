@@ -1,7 +1,7 @@
 
 # Accessibility CI demo
 
-[![Node.js CI][ci-img]][ci]
+[![Node.js CI][ci-img]][ci] (_expected to fail!_)
 
 This repository demonstrates integrating automated accessibility testing tools into a [continuous integration/deployment (CI/CD)][intro] workflow.
 
@@ -14,6 +14,8 @@ Specifically, it demonstrates the use of two separate tools:
 * @treosh's [lighthouse-ci-action][].
 
 The repo contains example _fails_ and _passes_ [pages](./pages), and corresponding [unit tests](./__tests__).
+
+![Screenshot showing Lighthouse report](./.github/workflows/screenshots/lighthouse-test-report-fail.png)
 
 ## ⚠️✋ This project does not guarantee that what you build is accessible.
 The GDS Accessibility team found that only [~30% of issues are found by automated testing][gds].
